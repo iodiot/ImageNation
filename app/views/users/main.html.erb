@@ -1,0 +1,18 @@
+<div id="main">
+
+<% if @user.image_updated_at.nil? %>
+	<a class="button" href="#">Load image...</a>
+
+  <%= form_for :user, :html => {:id => 'submit_form', :multipart => true} do |form| %>
+    <%= form.hidden_field :login %>
+    <%= form.file_field :image %> <br/>
+    <%= form.submit 'Submit'  %>
+	<% end %>
+<% else %>
+
+  <%= image_tag @user.image.url %>
+
+<% end %>
+
+</div>
+
