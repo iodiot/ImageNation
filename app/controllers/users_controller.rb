@@ -21,9 +21,15 @@ class UsersController < ApplicationController
     return if @user.nil?
 
     @user.update_attributes(params[:user])
-    logger.debug "NEW FILE NAME #{@user.image_file_name}"
+    logger.debug "SAVED? #{@user.inspect}"
+    #@user.image_file_name = request.headers['X-File-Name']
+		#@user.image_file_size = request.headers['X-File-Size'].to_i
+		#@user.image_content_type = request.headers['X-File-Type']
+		#@user.save
+    #logger.debug "SAVED? #{@user.save}"
 
     render 'main'
+    #redirect_to '/' + @user.login
   end
 
 end
