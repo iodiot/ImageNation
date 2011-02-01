@@ -6,8 +6,12 @@ gem 'rails', '3.0.3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
-gem "paperclip", "~> 2.3"
-gem 'aws-s3'
+
+gem 'paperclip'
+gem 'aws-s3', :require => 'aws/s3'
+gem 'right_aws'
+gem 'ruby-debug19'
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
