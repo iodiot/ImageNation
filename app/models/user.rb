@@ -1,9 +1,13 @@
 class User < ActiveRecord::Base
   has_attached_file :image,
-                    :styles => {:default => '100x100#'}
+                    :styles => {:thumb => '128x128#'},
+                    :storage => :s3,
+                    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+                    :bucket => 'iodiot',
+                    :path => ':style/:id/:filename'
 
 
-  #
+
   def self.random_login
     login = ''
 
