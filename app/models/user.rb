@@ -3,9 +3,18 @@ class User < ActiveRecord::Base
                     :styles => {:thumb => '128x128#'},
                     :storage => :s3,
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-                    :path => '/:style/:filename'
+                    :path => '/:style/:login_:token.:extension'
 
+	def self.random_token(length)
+		chars = ('a'..'z').to_a + ('0'..'9').to_a + ('A'..'Z').to_a
 
+		token = ''
+		(1..length).each do
+			token << chars[rand(chars.size - 1)]
+		end
+
+		return token
+	end
 
   def self.random_login
     login = ''
@@ -22,6 +31,5 @@ class User < ActiveRecord::Base
 
     return login
   end
-
 end
 

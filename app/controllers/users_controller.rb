@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     if @user.nil?
 			@user = User.create()
 			@user.login = params[:login]
+			@user.token = User.random_token(20)
 			@user.save
     end
   end
@@ -20,7 +21,8 @@ class UsersController < ApplicationController
     return if @user.nil?
 
     @user.update_attributes(params[:user])
-    logger.debug "DDDADDD #{@user.save}"
+    logger.debug "NEW FILE NAME #{@user.image_file_name}"
+
     render 'main'
   end
 
