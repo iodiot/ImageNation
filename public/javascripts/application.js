@@ -14,7 +14,7 @@ function supportAjaxUploadWithProgress() {
 }
 
 function onProgressHandler(event) {
-  var percent = event.loaded/event.total * 100;
+  var percent = Math.round(event.loaded/event.total * 100);
 
 	$(".button").html(percent + '%');
 

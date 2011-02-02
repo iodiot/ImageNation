@@ -16,6 +16,23 @@ body{
 	position:relative;
 }
 
+/* The following styles are only used for the styling of the demo page */
+
+a, a:visited {
+	text-decoration:none;
+	outline:none;
+	border-bottom:1px dotted #97cae6;
+	color:#97cae6;
+}
+
+a:hover{
+	border-bottom:1px dashed transparent;
+}
+
+.clear{
+	clear:both;
+}
+
 
 /* Styling the big button */
 
