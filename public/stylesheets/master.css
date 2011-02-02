@@ -14,39 +14,6 @@ body{
 #main{
 	margin:150px auto 0;
 	position:relative;
-	/*background-color:#F5F5F5;
-	border:1px solid #FFFFFF;
-	height:340px;
-	margin:150px auto 0;
-	position:relative;
-	width:640px;
-
-	-moz-box-shadow:0 0 22px #111;
-	-webkit-box-shadow:0 0 22px #111;
-	box-shadow:0 0 22px #111;*/
-}
-
-/* The following styles are only used for the styling of the demo page */
-
-#main img {
-  margin-left: auto;
-    margin-right: auto;
-}
-
-
-a, a:visited {
-	text-decoration:none;
-	outline:none;
-	border-bottom:1px dotted #97cae6;
-	color:#97cae6;
-}
-
-a:hover{
-	border-bottom:1px dashed transparent;
-}
-
-.clear{
-	clear:both;
 }
 
 

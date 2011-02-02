@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	include UsersHelper
 
   def main
     if params[:login].nil?
@@ -20,16 +21,13 @@ class UsersController < ApplicationController
     @user = User.find_by_login(params[:login])
     return if @user.nil?
 
-    @user.update_attributes(params[:user])
-    logger.debug "SAVED? #{@user.inspect}"
-    #@user.image_file_name = request.headers['X-File-Name']
-		#@user.image_file_size = request.headers['X-File-Size'].to_i
-		#@user.image_content_type = request.headers['X-File-Type']
-		#@user.save
-    #logger.debug "SAVED? #{@user.save}"
+	  upload = UploadedImage.new(request)
+   	@user.image = upload
+   	@user.save!
 
-    render 'main'
-    #redirect_to '/' + @user.login
+    logger.debug "DEBUG USER: #{@user.image.url}"
+
+    render :text => @user.image.url
   end
 
 end
